@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
 <!-- Hero Section with background image -->
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light" style="background-image: url('https://images.pexels.com/photos/325876/pexels-photo-325876.jpeg?auto=compress&cs=tinysrgb&w=1600'); background-size: cover; background-position: center;">
@@ -16,7 +17,7 @@
     <div class="row g-4">
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/046/883/928/small/a-high-resolution-image-featuring-a-stack-of-multicolored-cotton-rolls-with-a-clean-background-for-text-perfect-for-advertising-fabric-stores-or-sewing-tutorials-free-photo.jpg" class="card-img-top" alt="Cotton fabrics">
+                <img src="{% static 'images/cotton.jpg' %}" class="card-img-top" alt="Cotton fabrics" style="object-fit: cover; height: 250px;">
                 <div class="card-body text-center">
                     <h5 class="card-title">Cotton</h5>
                     <p class="card-text">Soft, breathable, perfect for summer.</p>
@@ -26,7 +27,7 @@
         </div>
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
-                <img src="https://media.licdn.com/dms/image/v2/D5612AQFZFM8NcyfLOg/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1653472285291?e=2147483647&v=beta&t=mN-cbOOuW6lCAs4e3g-ALVLEZNZr73GDJhuyB0gWV2Q" class="card-img-top" alt="Silk fabrics">
+                <img src="{% static 'images/silk.jpg' %}" class="card-img-top" alt="Silk fabrics" style="object-fit: cover; height: 250px;">
                 <div class="card-body text-center">
                     <h5 class="card-title">Silk</h5>
                     <p class="card-text">Luxurious and elegant for special occasions.</p>
@@ -36,8 +37,7 @@
         </div>
         <div class="col-md-4">
             <div class="card h-100 shadow-sm">
-                <img src="https://thumbs.dreamstime.com/b/set-colorful-wool-yarn-beige-background-knitting-as-kind-needlework-colorful-balls-yarn-knitting-needles-top-111585587.jpg" class="card-img-top" alt="Wool fabrics">
-                <div class="card-body text-center">
+                <img src="{% static 'images/wool.webp' %}" class="card-img-top" alt="Wool fabrics" style="object-fit: cover; height: 250px;">
                     <h5 class="card-title">Wool</h5>
                     <p class="card-text">Warm and cozy for winter.</p>
                     <a href="#" class="btn btn-outline-primary">Explore</a>
