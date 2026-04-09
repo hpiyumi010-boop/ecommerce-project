@@ -132,9 +132,16 @@ CSRF_TRUSTED_ORIGINS = [
     'https://localhost:8001',
     'https://*.github.dev',
     'https://*.preview.app.github.dev',
+    'https://vigilant-robot-pjqqr6rp69p5f5x5-8001.app.github.dev/register/',
 ]
+
+# Relax CSRF and session cookie settings for development in Codespaces
+CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_SAMESITE = None
+SESSION_COOKIE_SECURE = False
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/6.0/ref/settings/#default-auto-field
+
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
