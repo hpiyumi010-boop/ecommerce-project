@@ -1,15 +1,16 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required   # <-- new import
+from django.contrib.auth.decorators import login_required
+from .forms import CustomUserCreationForm
 
 def home(request):
     return render(request, 'home.html')
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
@@ -18,7 +19,7 @@ def register(request):
         else:
             messages.error(request, 'Please correct the errors below.')
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     return render(request, 'register.html', {'form': form})
 
 def user_login(request):
@@ -43,7 +44,6 @@ def user_logout(request):
     messages.info(request, 'You have been logged out.')
     return redirect('home')
 
-# New profile view
 @login_required
 def profile(request):
     return render(request, 'profile.html')
