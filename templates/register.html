@@ -12,7 +12,11 @@
                     {% for field in form %}
                         <div class="mb-3">
                             <label class="form-label">{{ field.label }}</label>
-                            {{ field }}
+                            {% if forloop.first %}
+                                {{ field|add:"autofocus" }}
+                            {% else %}
+                                {{ field }}
+                            {% endif %}
                             {% if field.errors %}
                                 <div class="text-danger small">{{ field.errors }}</div>
                             {% endif %}
