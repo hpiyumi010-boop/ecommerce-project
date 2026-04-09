@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-^mr%bfj2ly#b7ex%+jhk+8g3hdzb6n&@x0&a_$yem7eu&_86=8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']  # Allow all hosts for Codespaces (adjust for production)
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'myapp',
-    #"shop", ## Temporarily removed to debug root URL
+    'shop',   # Re-enabled
 ]
 
 MIDDLEWARE = [
@@ -117,4 +117,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+
+# Additional directories for static files (like your images folder)
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+# CSRF settings for Codespaces / localhost
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000',
+    'http://localhost:8001',
+    'https://localhost:8000',
+    'https://localhost:8001',
+    'https://*.github.dev',
+    'https://*.preview.app.github.dev',
+]
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/6.0/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
