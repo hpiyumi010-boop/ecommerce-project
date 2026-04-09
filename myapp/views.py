@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
-from django.contrib import messages  # <-- add this line
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required   # <-- new import
 
 def home(request):
     return render(request, 'home.html')
@@ -41,3 +42,8 @@ def user_logout(request):
     logout(request)
     messages.info(request, 'You have been logged out.')
     return redirect('home')
+
+# New profile view
+@login_required
+def profile(request):
+    return render(request, 'profile.html')
