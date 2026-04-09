@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required   # <-- new import
 
 def home(request):
+    raise Exception("TEST: This is coming from myapp home view!")
     return render(request, 'home.html')
 
 def register(request):
