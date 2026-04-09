@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'ecommerce.middleware.DisableCSRFOriginCheck',  # Add this as first item
+    'ecommerce.middleware.DisableCSRF',  # <-- ADD THIS LINE
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
