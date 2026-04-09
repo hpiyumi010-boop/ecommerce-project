@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'ecommerce.middleware.DisableCSRFOriginCheck',  # Add this as first item
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -136,6 +137,8 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 # Relax CSRF and session cookie settings for development in Codespaces
+# Disable CSRF origin check completely for development
+CSRF_TRUSTED_ORIGINS = ['*']  # Not recommended but works for development
 CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_SAMESITE = None
 SESSION_COOKIE_SECURE = False
