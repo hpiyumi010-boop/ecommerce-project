@@ -1,7 +1,6 @@
 from django.utils.deprecation import MiddlewareMixin
 
-class DisableCSRFOriginCheck(MiddlewareMixin):
-    """Disable CSRF origin check for development in Codespaces"""
+class DisableCSRF(MiddlewareMixin):
+    """Disable CSRF verification for all requests (development only)"""
     def process_request(self, request):
-        # Mark this request to skip CSRF origin verification
         setattr(request, '_dont_enforce_csrf_checks', True)
