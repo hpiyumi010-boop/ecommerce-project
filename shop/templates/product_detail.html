@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-{% load static %}
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,10 +14,13 @@
         
         <!-- Product Image -->
         <div class="col-md-6">
-            {% if product.image %}
-                <img src="{{ product.image.url }}" class="img-fluid rounded">
+            {% load static %}
+            {% if product.image_filename %}
+                <img src="{% static 'images/products/'|add:product.image_filename %}" class="img-fluid rounded" alt="{{ product.name }}">
+            {% elif product.image %}
+                <img src="{{ product.image.url }}" class="img-fluid rounded" alt="{{ product.name }}">
             {% else %}
-                <img src="https://via.placeholder.com/400">
+                <img src="https://via.placeholder.com/400x400?text=No+Image" class="img-fluid rounded">
             {% endif %}
         </div>
 
